@@ -19,7 +19,6 @@ export default function HomePage() {
 
   return (
     <main className="bg-gradient-to-br from-rose-100 via-white to-indigo-100 min-h-screen text-gray-800">
-
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 shadow-sm bg-white/70 backdrop-blur sticky top-0 z-10">
         <h1 className="text-2xl font-bold text-purple-800">
@@ -96,20 +95,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Loom Video Section */}
-      <section className="py-16 bg-indigo-100 text-center px-4">
-        <h2 className="text-3xl font-bold text-purple-800 mb-6">Watch Culinify in Action</h2>
-        <div className="max-w-3xl mx-auto">
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              width="640"
-              height="640"
-              src="https://www.loom.com/embed/457b96dec59f422ba4ea265119078a28?sid=bc4e0da2-6979-4f22-a783-0cd954079b1e"
-              frameBorder="0"
-              allowFullScreen
-              className="w-full h-full rounded-xl shadow-md"
-            ></iframe>
-          </div>
+      {/* Loom Demo Video Section */}
+      <section className="px-6 py-20 bg-white text-center">
+        <h2 className="text-3xl font-bold text-purple-800 mb-8">
+          See Culinify in Action
+        </h2>
+        <div className="max-w-4xl mx-auto aspect-video relative">
+          <iframe
+            src="https://www.loom.com/embed/457b96dec59f422ba4ea265119078a28?sid=51fa29f0-41c9-4156-97a7-6a78531e36d0"
+            frameBorder="0"
+            allowFullScreen
+            className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
+          ></iframe>
         </div>
       </section>
 
