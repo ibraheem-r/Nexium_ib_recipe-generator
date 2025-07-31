@@ -1,40 +1,103 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#fffaf5] to-[#ffeaea] dark:from-[#1a1a1a] dark:to-[#2c2c2c] px-6 py-12">
-      <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Welcome to <span className="text-pink-600">Culinify</span>
+    <main className="bg-gradient-to-br from-rose-100 via-white to-indigo-100 min-h-screen text-gray-800">
+
+      {/* Header */}
+      <header className="flex justify-between items-center px-6 py-4 shadow-sm bg-white/70 backdrop-blur sticky top-0 z-10">
+        <h1 className="text-2xl font-bold text-purple-800">
+          <Link href="/">Culinify </Link>
         </h1>
-        <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-          AI-powered recipe inspiration — generate unique and delicious meals with just a few clicks.
-        </p>
+        <div>
+          <Link href="/signin">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-lg text-sm">
+              Sign In
+            </Button>
+          </Link>
+        </div>
       </header>
 
-      <main className="flex flex-col sm:flex-row gap-4">
+      {/* Hero Section */}
+      <section className="text-center py-24 px-6">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-purple-800 drop-shadow-sm">
+          Culinify 
+        </h1>
+        <p className="text-lg mt-4 max-w-xl mx-auto text-gray-700">
+          Your personal AI-powered recipe creator. Describe what you have, and we will cook up the perfect dish for you.
+        </p>
         <Link href="/generate">
-          <Button className="rounded-full px-6 py-3 text-lg font-medium bg-pink-600 hover:bg-pink-700 text-white shadow-md transition">
-            🍳 Generate a Recipe
+          <Button className="mt-6 px-8 py-3 text-lg bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-md transition-all duration-300">
+            Generate a Recipe
           </Button>
         </Link>
+      </section>
 
-        <Link href="/signin">
-          <Button
-            variant="outline"
-            className="rounded-full px-6 py-3 text-lg font-medium border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+      {/* Features Section */}
+      <section className="grid md:grid-cols-3 gap-6 px-10 py-16 max-w-6xl mx-auto">
+        {[
+          {
+            title: 'Smart Suggestions',
+            desc: 'AI tailors unique recipes based on your input.',
+          },
+          {
+            title: 'Save History',
+            desc: 'Access your past recipes anytime from your dashboard.',
+          },
+          {
+            title: 'Quick & Easy',
+            desc: 'Get complete recipes in under 30 seconds.',
+          },
+        ].map((feature, i) => (
+          <div
+            key={i}
+            className="bg-white/80 backdrop-blur-md border border-purple-100 p-6 rounded-xl shadow-sm text-center"
           >
-            🔐 Sign In
+            <h3 className="text-xl font-semibold text-purple-700">{feature.title}</h3>
+            <p className="text-gray-600 mt-2">{feature.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* How It Works Section */}
+      <section className="bg-white py-20 px-6 text-center">
+        <h2 className="text-3xl font-bold text-purple-800">How It Works</h2>
+        <div className="grid md:grid-cols-3 gap-10 mt-12 max-w-5xl mx-auto">
+          {[
+            'Describe your ingredients or cravings.',
+            'Our AI generates a custom recipe.',
+            'Save and revisit your favorites!',
+          ].map((step, i) => (
+            <div
+              key={i}
+              className="bg-purple-50 p-6 rounded-xl shadow text-gray-700 hover:shadow-md transition"
+            >
+              <span className="text-4xl font-bold text-purple-600">{i + 1}</span>
+              <p className="mt-4">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="text-center py-16 bg-indigo-50">
+        <h2 className="text-3xl font-bold text-indigo-800">
+          Start your culinary adventure today!
+        </h2>
+        <Link href="/generate">
+          <Button className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl shadow-md">
+            Generate Now
           </Button>
         </Link>
-      </main>
+      </section>
 
-      <footer className="mt-16 text-sm text-gray-500 dark:text-gray-400">
-        &copy; {new Date().getFullYear()} Culinify. All rights reserved.
+      {/* Footer */}
+      <footer className="text-center text-sm text-gray-500 py-6">
+        © 2025 Culinify. Built with 💜 using Supabase, Next.js, and n8n.
       </footer>
-    </div>
+    </main>
   )
 }
