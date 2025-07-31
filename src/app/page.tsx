@@ -96,6 +96,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Loom Video Section */}
+      <section className="py-16 bg-indigo-100 text-center px-4">
+        <h2 className="text-3xl font-bold text-purple-800 mb-6">Watch Culinify in Action</h2>
+        <div className="max-w-3xl mx-auto">
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              width="640"
+              height="348"
+              src="https://www.loom.com/embed/457b96dec59f422ba4ea265119078a28?sid=bc4e0da2-6979-4f22-a783-0cd954079b1e"
+              frameBorder="0"
+              allowFullScreen
+              className="w-full h-full rounded-xl shadow-md"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="text-center py-16 bg-indigo-50">
         <h2 className="text-3xl font-bold text-indigo-800">
