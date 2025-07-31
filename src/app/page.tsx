@@ -103,7 +103,7 @@ export default function HomePage() {
           <div className="aspect-w-16 aspect-h-9">
             <iframe
               width="640"
-              height="348"
+              height="640"
               src="https://www.loom.com/embed/457b96dec59f422ba4ea265119078a28?sid=bc4e0da2-6979-4f22-a783-0cd954079b1e"
               frameBorder="0"
               allowFullScreen
