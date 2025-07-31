@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing prompt or userId' }, { status: 400 })
     }
 
-    const webhookURL = 'http://localhost:5678/webhook/generate-recipe'
+    const webhookURL = 'https://ibraheem123.app.n8n.cloud/webhook-test/generate-recipe'
 
     const response = await fetch(webhookURL, {
       method: 'POST',
