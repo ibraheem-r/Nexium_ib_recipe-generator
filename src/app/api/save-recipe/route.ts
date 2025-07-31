@@ -13,7 +13,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing userId or recipe' }, { status: 400 })
   }
 
-  const { error } = await supabase.from('recipes').insert([{ user_id: userId, content: recipe }])
+ // ...existing code...
+  const { error } = await supabase.from('recipes').insert([{ user_id: userId, recipe }])
+// ...existing code...
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

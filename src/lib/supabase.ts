@@ -1,9 +1,8 @@
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createBrowserClient } from '@supabase/ssr'
 
-// No arguments needed here:
-export const supabaseBrowser = () => createPagesBrowserClient()
-
-// Server-side usage is fine as-is:
-export const supabaseServer = () => createServerComponentClient({ cookies })
+export function createClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+}
