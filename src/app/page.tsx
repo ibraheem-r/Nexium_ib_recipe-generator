@@ -2,15 +2,28 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { useSession } from '@supabase/auth-helpers-react'
+import { useRouter } from 'next/navigation'
 
 export default function HomePage() {
+  const session = useSession()
+  const router = useRouter()
+
+  const handleGenerateClick = () => {
+    if (!session) {
+      router.push('/signin')
+    } else {
+      router.push('/generate')
+    }
+  }
+
   return (
     <main className="bg-gradient-to-br from-rose-100 via-white to-indigo-100 min-h-screen text-gray-800">
 
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 shadow-sm bg-white/70 backdrop-blur sticky top-0 z-10">
         <h1 className="text-2xl font-bold text-purple-800">
-          <Link href="/">Culinify </Link>
+          <Link href="/">Culinify</Link>
         </h1>
         <div>
           <Link href="/signin">
@@ -24,16 +37,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center py-24 px-6">
         <h1 className="text-5xl md:text-6xl font-extrabold text-purple-800 drop-shadow-sm">
-          Culinify 
+          Culinify
         </h1>
         <p className="text-lg mt-4 max-w-xl mx-auto text-gray-700">
           Your personal AI-powered recipe creator. Describe what you have, and we will cook up the perfect dish for you.
         </p>
-        <Link href="/generate">
-          <Button className="mt-6 px-8 py-3 text-lg bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-md transition-all duration-300">
-            Generate a Recipe
-          </Button>
-        </Link>
+        <Button
+          onClick={handleGenerateClick}
+          className="mt-6 px-8 py-3 text-lg bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-md transition-all duration-300"
+        >
+          Generate a Recipe
+        </Button>
       </section>
 
       {/* Features Section */}
@@ -87,11 +101,12 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold text-indigo-800">
           Start your culinary adventure today!
         </h2>
-        <Link href="/generate">
-          <Button className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl shadow-md">
-            Generate Now
-          </Button>
-        </Link>
+        <Button
+          onClick={handleGenerateClick}
+          className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl shadow-md"
+        >
+          Generate Now
+        </Button>
       </section>
 
       {/* Footer */}
