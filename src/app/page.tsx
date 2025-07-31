@@ -228,16 +228,19 @@ export default function HomePage() {
     </p>
   </div>
 
-  <div className="max-w-4xl mx-auto aspect-video relative group">
-    <iframe
-      src="https://www.loom.com/embed/95e22ff08c6b4844afde60f6b628212b?sid=91234963-f8c7-4dee-8251-69aab1a6d6e6"
-      frameBorder="0"
-      allowFullScreen
-      className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
-      title="Culinify Demo"
-    ></iframe>
+  <div className="max-w-4xl mx-auto relative group">
+    <video
+      controls
+      playsInline
+      preload="metadata"
+      poster="/videos/poster.png"
+      className="w-full rounded-xl shadow-lg"
+      src="/videos/culinify-demo.mp4"
+    >
+      Your browser does not support the video tag.
+    </video>
 
-    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
       <div className="bg-white/90 backdrop-blur-sm rounded-full p-4 shadow-lg">
         <Play className="w-8 h-8 text-purple-600" />
       </div>
